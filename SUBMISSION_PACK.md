@@ -34,6 +34,8 @@ HTML5, CSS3, vanilla JavaScript, browser localStorage, and a local Node static s
 - [x] Local student-to-teacher flow passes with synthetic data.
 - [x] No identity fields or external data are used.
 - [x] The GatewayHacks live rules were read: ages 13+, students only, project page, visual, and video pitch.
+- [x] Public source repository: https://github.com/xqscora/open-door-classroom
+- [x] Live demo: https://xqscora.github.io/open-door-classroom/
 - [ ] Devpost project draft created.
 - [ ] Video pitch uploaded.
 - [ ] Final Devpost submission verified.

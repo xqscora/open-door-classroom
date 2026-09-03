@@ -1,0 +1,16 @@
+{
+  "project_name": "Open Door Classroom",
+  "tagline": "Make the quiet blockers visible.",
+  "short_description": "Open Door Classroom lets students send one anonymous lesson signal: lost, too fast, need an example, or ready to stretch. A teacher sees aggregate patterns and one concrete next classroom adjustment, without collecting names, email addresses, or private explanations.",
+  "built_with": ["HTML5", "CSS3", "vanilla JavaScript", "browser localStorage", "Node.js"],
+  "track": "Equity in Education",
+  "repository": "https://github.com/xqscora/open-door-classroom",
+  "demo": "https://xqscora.github.io/open-door-classroom/",
+  "visual": "demo/open-door-classroom_teacher-board_2026-09-04.png",
+  "video_candidate": "demo/open-door-classroom_demo_2026-09-04.webm",
+  "truth_status": {
+    "devpost_draft_created": false,
+    "video_uploaded": false,
+    "final_submission_verified": false
+  }
+}

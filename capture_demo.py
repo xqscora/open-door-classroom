@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil
 
 from playwright.sync_api import sync_playwright
 
@@ -11,8 +12,9 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        context = browser.new_context(viewport={"width": 1200, "height": 900}, device_scale_factor=1)
+        context = browser.new_context(viewport={"width": 1200, "height": 900}, device_scale_factor=1, record_video_dir=str(OUT))
         page = context.new_page()
+        video = page.video
         page.goto("http://127.0.0.1:8789/", wait_until="networkidle")
         page.locator('[data-signal="unclear"]').click()
         page.get_by_role("button", name="Send signal", exact=True).click()
@@ -21,7 +23,13 @@ def main() -> None:
         page.screenshot(path=str(OUT / "open-door-classroom_teacher-board_2026-09-04.png"), full_page=True)
         assert page.locator("#signalRows").get_by_text("Add a worked example before independent practice.", exact=True).is_visible()
         assert page.get_by_text("5 signals", exact=True).is_visible()
+        page.wait_for_timeout(800)
+        page.close()
         context.close()
+        source = Path(video.path())
+        target = OUT / "open-door-classroom_demo_2026-09-04.webm"
+        if source != target:
+            shutil.copyfile(source, target)
         browser.close()
 
 

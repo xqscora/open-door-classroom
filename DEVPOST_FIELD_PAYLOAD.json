@@ -8,6 +8,8 @@
   "demo": "https://xqscora.github.io/open-door-classroom/",
   "visual": "demo/open-door-classroom_teacher-board_2026-09-04.png",
   "video_candidate": "demo/open-door-classroom_demo_2026-09-04.webm",
+  "public_video": "https://github.com/xqscora/open-door-classroom/releases/download/v0.1.0/open-door-classroom_demo_2026-09-04.webm",
+  "public_video_release": "https://github.com/xqscora/open-door-classroom/releases/tag/v0.1.0",
   "truth_status": {
     "devpost_draft_created": false,
     "video_uploaded": false,

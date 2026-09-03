@@ -26,8 +26,11 @@ HTML5, CSS3, vanilla JavaScript, browser localStorage, and a local Node static s
 ## Evidence
 
 - Screenshot: `demo/open-door-classroom_teacher-board_2026-09-04.png`
-- Public source repository: pending GitHub push from this directory
-- Live demo: pending GitHub Pages deployment
+- Public source repository: https://github.com/xqscora/open-door-classroom
+- Live demo: https://xqscora.github.io/open-door-classroom/
+- Public video asset: https://github.com/xqscora/open-door-classroom/releases/download/v0.1.0/open-door-classroom_demo_2026-09-04.webm
+- Video release page: https://github.com/xqscora/open-door-classroom/releases/tag/v0.1.0
+- Local source recording: `demo/open-door-classroom_demo_2026-09-04.webm`
 
 ## Accuracy gates
 
@@ -36,6 +39,7 @@ HTML5, CSS3, vanilla JavaScript, browser localStorage, and a local Node static s
 - [x] The GatewayHacks live rules were read: ages 13+, students only, project page, visual, and video pitch.
 - [x] Public source repository: https://github.com/xqscora/open-door-classroom
 - [x] Live demo: https://xqscora.github.io/open-door-classroom/
+- [x] Public video asset uploaded and verified in the Cora-owned GitHub release
 - [ ] Devpost project draft created.
 - [ ] Video pitch uploaded.
 - [ ] Final Devpost submission verified.

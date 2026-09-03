@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#143c52">
+  <title>Open Door Classroom</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">OPEN DOOR CLASSROOM</p>
+      <h1>Make the quiet blockers visible.</h1>
+      <p class="lede">An anonymous classroom signal board that helps teachers adjust the next lesson without asking students to explain themselves in public.</p>
+      <div class="tabs" role="tablist" aria-label="View">
+        <button type="button" class="tab selected" role="tab" aria-selected="true" data-view="student">Student signal</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-view="teacher">Teacher board</button>
+      </div>
+    </header>
+
+    <section class="view" id="studentView" role="tabpanel">
+      <div class="section-heading"><div><p class="eyebrow">PRIVATE FIRST</p><h2>What got in the way?</h2></div><span class="chip">No names collected</span></div>
+      <p class="hint">Choose the signal that best describes this lesson. The class sees patterns, not individual students.</p>
+      <div class="signal-grid">
+        <button type="button" class="signal" data-signal="unclear"><span class="signal-mark">?</span><strong>I am lost</strong><small>The idea needs another explanation.</small></button>
+        <button type="button" class="signal" data-signal="fast"><span class="signal-mark">››</span><strong>Too fast</strong><small>The class moved on before I could follow.</small></button>
+        <button type="button" class="signal" data-signal="example"><span class="signal-mark">□</span><strong>Need an example</strong><small>Show one worked example first.</small></button>
+        <button type="button" class="signal" data-signal="ready"><span class="signal-mark">+</span><strong>Ready to stretch</strong><small>I can try a harder version.</small></button>
+      </div>
+      <div class="selected-signal hidden" id="selectedSignal" aria-live="polite"><div><p class="eyebrow">READY TO SEND</p><strong id="selectedLabel"></strong><p>Your signal is anonymous and stays on this device in the demo.</p></div><button type="button" class="primary" id="sendSignal">Send signal</button></div>
+      <p class="notice" id="studentNotice" role="status"></p>
+    </section>
+
+    <section class="view hidden" id="teacherView" role="tabpanel">
+      <div class="section-heading"><div><p class="eyebrow">ROOM 204 · PERIOD 2</p><h2>Today's learning signals</h2></div><button type="button" class="text-button" id="loadSample">Load sample room</button></div>
+      <div class="summary-grid" id="summary"></div>
+      <div class="board-layout"><div class="board-panel"><div class="section-heading compact"><h3>What needs a response?</h3><span id="totalSignals">0 signals</span></div><div id="signalRows"></div></div><aside class="next-move"><p class="eyebrow">NEXT SMALL ADJUSTMENT</p><h3 id="nextTitle">No signal yet</h3><p id="nextBody">Use the student view or load the sample room to see a concrete classroom move.</p></aside></div>
+      <p class="notice" id="teacherNotice" role="status"></p>
+    </section>
+
+    <footer><span>Open Door Classroom</span><span>Local demo · synthetic classroom data</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

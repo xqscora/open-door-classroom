@@ -10,18 +10,18 @@ Make the quiet blockers visible.
 
 ## Short description
 
-Open Door Classroom lets students send one anonymous lesson signal: lost, too fast, need an example, or ready to stretch. A teacher sees aggregate patterns and one concrete next classroom adjustment, without collecting names, email addresses, or private explanations.
+Open Door Classroom lets students send one anonymous lesson signal: lost, too fast, need an example, or ready to stretch. A teacher sees privacy-filtered aggregate patterns and one concrete next classroom adjustment, without collecting names, email addresses, or private explanations.
 
 ## GatewayHacks alignment
 
 - Primary track: Equity in Education
 - Problem: students often cannot signal a lesson-level access barrier in public, while teachers receive incomplete anecdotes.
-- Demo: one student signal, a synthetic room, and a teacher board that turns the dominant pattern into a response.
+- Demo: one student signal, a synthetic room, and a teacher board that applies a k=3 privacy floor before turning a dominant pattern into a response.
 - Distinctness: classroom coordination is the core object; this is not a personal energy check-in, task planner, diagnosis, or personality system.
 
 ## Built with
 
-HTML5, CSS3, vanilla JavaScript, browser localStorage, and a local Node static server.
+HTML5, CSS3, vanilla JavaScript, browser localStorage, a k=3 privacy floor, and a local Node static server.
 
 ## Evidence
 

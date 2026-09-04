@@ -45,6 +45,15 @@ def main() -> None:
             assert page.title() == "Open Door Classroom"
             assert page.locator("#studentView").is_visible()
             assert page.locator(".signal").count() == 4
+            assert page.get_by_role("tab", name="Student signal").get_attribute("aria-controls") == "studentView"
+            assert page.get_by_role("tab", name="Teacher board").get_attribute("aria-controls") == "teacherView"
+
+            page.evaluate("document.querySelector('#sendSignal').click()")
+            assert page.evaluate("localStorage.getItem('open-door-classroom-signals')") is None
+
+            page.evaluate("localStorage.setItem('open-door-classroom-signals', '{broken json')")
+            page.reload(wait_until="networkidle")
+            assert page.locator("#studentView").is_visible()
 
             page.get_by_role("button", name="Need an example").click()
             assert page.locator("#selectedSignal").is_visible()
@@ -53,19 +62,27 @@ def main() -> None:
             assert "Signal sent" in page.locator("#studentNotice").inner_text()
             assert page.evaluate("JSON.parse(localStorage.getItem('open-door-classroom-signals'))") == ["example"]
 
+            page.evaluate("() => { window.__realSetItem = Storage.prototype.setItem; Storage.prototype.setItem = function () { throw new Error('storage blocked'); }; return true; }")
+            page.get_by_role("button", name="Need an example").click()
+            page.get_by_role("button", name="Send signal").click()
+            assert "could not be saved" in page.locator("#studentNotice").inner_text()
+            page.evaluate("() => { Storage.prototype.setItem = window.__realSetItem; return true; }")
+
             page.get_by_role("tab", name="Teacher board").click()
             page.get_by_role("button", name="Load sample room").click()
             assert page.locator("#teacherView").is_visible()
-            assert page.locator("#totalSignals").inner_text() == "5 signals"
+            assert page.locator("#totalSignals").inner_text() == "12 signals"
             assert page.locator("#summary .summary").count() == 4
             assert "worked example" in page.locator("#nextTitle").inner_text().lower()
-            assert "No student identity is stored" in page.locator("#teacherNotice").inner_text()
+            assert "no student identity is stored" in page.locator("#teacherNotice").inner_text().lower()
+            assert "low-count categories are hidden" in page.locator("#privacyNote").inner_text()
 
             page.get_by_role("tab", name="Student signal").click()
             page.get_by_role("button", name="Ready to stretch").click()
             page.get_by_role("button", name="Send signal").click()
             page.get_by_role("tab", name="Teacher board").click()
-            assert page.locator("#totalSignals").inner_text() == "6 signals"
+            assert page.locator("#totalSignals").inner_text() == "13 signals"
+            assert page.locator("#summary .summary").nth(2).locator("strong").inner_text() == "—"
             assert not external_requests, f"Unexpected external requests: {external_requests}"
 
             browser.close()

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#143c52">
   <title>Open Door Classroom</title>
-  <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="privacy.css">
 </head>
 <body>
   <main class="shell">
@@ -14,8 +15,8 @@
       <h1>Make the quiet blockers visible.</h1>
       <p class="lede">An anonymous classroom signal board that helps teachers adjust the next lesson without asking students to explain themselves in public.</p>
       <div class="tabs" role="tablist" aria-label="View">
-        <button type="button" class="tab selected" role="tab" aria-selected="true" data-view="student">Student signal</button>
-        <button type="button" class="tab" role="tab" aria-selected="false" data-view="teacher">Teacher board</button>
+        <button type="button" class="tab selected" role="tab" aria-selected="true" aria-controls="studentView" tabindex="0" data-view="student">Student signal</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="teacherView" tabindex="-1" data-view="teacher">Teacher board</button>
       </div>
     </header>
 
@@ -33,13 +34,14 @@
     </section>
 
     <section class="view hidden" id="teacherView" role="tabpanel">
-      <div class="section-heading"><div><p class="eyebrow">ROOM 204 · PERIOD 2</p><h2>Today's learning signals</h2></div><button type="button" class="text-button" id="loadSample">Load sample room</button></div>
-      <div class="summary-grid" id="summary"></div>
-      <div class="board-layout"><div class="board-panel"><div class="section-heading compact"><h3>What needs a response?</h3><span id="totalSignals">0 signals</span></div><div id="signalRows"></div></div><aside class="next-move"><p class="eyebrow">NEXT SMALL ADJUSTMENT</p><h3 id="nextTitle">No signal yet</h3><p id="nextBody">Use the student view or load the sample room to see a concrete classroom move.</p></aside></div>
+      <div class="section-heading"><div><p class="eyebrow">ROOM 204 · PERIOD 2</p><h2>Today's learning signals</h2></div><div class="board-tools"><span class="chip" id="privacyStatus">Privacy floor: 3</span><button type="button" class="text-button" id="loadSample">Load sample room</button></div></div>
+      <div class="privacy-note" id="privacyNote" role="status">Patterns stay hidden until at least 3 matching signals protect a small group.</div>
+      <div class="summary-grid" id="summary" aria-live="polite"></div>
+      <div class="board-layout"><div class="board-panel"><div class="section-heading compact"><h3>What needs a response?</h3><span id="totalSignals">0 signals</span></div><div id="signalRows" aria-live="polite"></div></div><aside class="next-move"><p class="eyebrow">NEXT SMALL ADJUSTMENT</p><h3 id="nextTitle">No signal yet</h3><p id="nextBody">Use the student view or load the sample room to see a concrete classroom move.</p></aside></div>
       <p class="notice" id="teacherNotice" role="status"></p>
     </section>
 
-    <footer><span>Open Door Classroom</span><span>Local demo · synthetic classroom data</span></footer>
+    <footer><span>Open Door Classroom</span><span>Local demo · k=3 aggregate privacy floor</span></footer>
   </main>
   <script src="app.js"></script>
 </body>

@@ -1,10 +1,10 @@
 # Open Door Classroom
 
-Open Door Classroom is a student-built, local-first prototype for GatewayHacks 2026's Equity in Education track. Students send one anonymous lesson signal; a teacher sees only aggregate patterns and a concrete next classroom adjustment.
+Open Door Classroom is a student-built, local-first prototype for GatewayHacks 2026's Equity in Education track. Students send one anonymous lesson signal; a teacher sees only privacy-filtered aggregate patterns and a concrete next classroom adjustment.
 
 ## Why it is distinct
 
-This is classroom coordination, not a personal energy check-in, a diagnosis, a personality system, or a task planner. The core object is a lesson-level access signal and a teacher response queue.
+This is classroom coordination, not a personal energy check-in, a diagnosis, a personality system, or a task planner. The core object is a lesson-level access signal and a teacher response queue. The board enforces a k=3 privacy floor: categories with fewer than three matching signals are suppressed instead of exposing a small-group outlier.
 
 ## Run locally
 
@@ -12,7 +12,7 @@ This is classroom coordination, not a personal energy check-in, a diagnosis, a p
 node serve.cjs
 ```
 
-Open `http://127.0.0.1:8789/`. Use the student view to send a signal, then open the teacher board. `Load sample room` inserts synthetic signals for a repeatable demo; all data stays in browser localStorage.
+Open `http://127.0.0.1:8789/`. Use the student view to send a signal, then open the teacher board. `Load sample room` inserts synthetic signals for a repeatable demo; the board suppresses categories below the k=3 floor and all data stays in browser localStorage.
 
 ## Boundary
 

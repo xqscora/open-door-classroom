@@ -1,0 +1,21 @@
+.board-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.privacy-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--gold);
+  background: #fff8e8;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .board-tools {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
